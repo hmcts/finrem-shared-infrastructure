@@ -44,3 +44,7 @@ variable "team_contact" {
 variable "asp_capacity" {
   default = 2
 }
+
+variable "managed_identity_object_id" {
+  default = ""
+}

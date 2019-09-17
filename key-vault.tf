@@ -7,6 +7,7 @@ module "finrem-vault" {
   object_id = "${var.jenkins_AAD_objectId}"
   resource_group_name = "${azurerm_resource_group.rg.name}"
   product_group_object_id = "94ac8962-b614-441b-aa4c-9be878a6bf17"
+  managed_identity_object_id = "${var.managed_identity_object_id}"
 }
 
 output "vaultName" {
