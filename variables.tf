@@ -1,27 +1,21 @@
 variable "product" {
-  type = "string"
   default = "finrem"
 }
 
 variable "location" {
-  type    = "string"
   default = "UK South"
 }
 
 // as of now, UK South is unavailable for Application Insights
 variable "appinsights_location" {
-  type        = "string"
   default     = "West Europe"
   description = "Location for Application Insights"
 }
 
-variable "env" {
-  type = "string"
-}
+variable "env" {}
 
 variable "application_type" {
-  type        = "string"
-  default     = "Web"
+  default     = "web"
   description = "Type of Application Insights (Web/Other)"
 }
 
@@ -34,15 +28,11 @@ variable "jenkins_AAD_objectId" {
 }
 
 variable "common_tags" {
-  type = "map"
+  type = map(string)
 }
 
 variable "team_contact" {
   default = "#finrem-dev"
-}
-
-variable "asp_capacity" {
-  default = 2
 }
 
 variable "managed_identity_object_id" {
