@@ -2,8 +2,4 @@
 //noinspection GroovyUnusedAssignment
 @Library("Infrastructure") _
 
-def product = 'finrem'
-
-withInfraPipeline(product) {
-  enableSlackNotifications("#finrem-dev")
-}
+withInfraPipeline('finrem') {}
