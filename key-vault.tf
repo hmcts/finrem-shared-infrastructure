@@ -1,5 +1,5 @@
 module "finrem-vault" {
-  source = "git@github.com:hmcts/cnp-module-key-vault?ref=azurermv2"
+  source = "git@github.com:hmcts/cnp-module-key-vault?ref=master"
   name = "finrem-${var.env}"
   product = var.product
   env = var.env
