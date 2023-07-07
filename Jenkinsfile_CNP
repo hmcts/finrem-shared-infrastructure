@@ -1,5 +1,5 @@
 #!groovy
 //noinspection GroovyUnusedAssignment
-@Library("Infrastructure") _
+@Library("Infrastructure@old-provider") _
 
 withInfraPipeline('finrem') {}
