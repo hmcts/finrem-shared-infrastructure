@@ -39,7 +39,7 @@ resource "azurerm_key_vault_secret" "app_insights_workspace_id" {
 
   name         = "app-insights-workspace-id"
   value        = data.azurerm_application_insights.main.workspace_id
-  key_vault_id = module.et-key-vault.key_vault_id
+  key_vault_id = module.finrem-vault.key_vault_id
 
   tags = merge(
     var.common_tags,
