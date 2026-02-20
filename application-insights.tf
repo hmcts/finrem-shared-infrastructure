@@ -1,5 +1,8 @@
+
+# Note: Access management (role assignments, workspace ID secrets) is in to application-insights-access.tf
+# This keeps core App Insights configuration separate from access/consumption concerns
 module "application_insights" {
-  source = "git@github.com:hmcts/terraform-module-application-insights?ref=main"
+  source = "git@github.com:hmcts/terraform-module-application-insights?ref=4.x"
 
   env                 = var.env
   location            = var.appinsights_location
