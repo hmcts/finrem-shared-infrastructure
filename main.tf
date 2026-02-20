@@ -17,7 +17,7 @@ locals {
 locals {
   # Use variable if provided, otherwise use hardcoded prod value
   slack_alerts_principal_id = var.slack_alerts_principal_id != "" ? var.slack_alerts_principal_id : (
-    var.env == "prod" ? "todo_put_in_hardcoded_value" : null
+    var.env == "prod" ? "407103df-1a98-4c25-af65-ae11daf1fef5" : null
   )
 }
 
