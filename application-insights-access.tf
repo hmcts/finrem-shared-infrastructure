@@ -12,7 +12,7 @@ data "azurerm_application_insights" "main" {
 
 # Grant access to the Log Analytics Workspace (required for querying logs)
 resource "azurerm_role_assignment" "slack_alerts_monitoring_reader_workspace" {
-  count = var.env == "aat" ? 1 : 0
+  count = var.env == "prod" ? 1 : 0
 
   scope                = data.azurerm_application_insights.main.workspace_id
   role_definition_name = "Monitoring Reader"
@@ -23,7 +23,7 @@ resource "azurerm_role_assignment" "slack_alerts_monitoring_reader_workspace" {
 
 # Also grant access to the Application Insights resource itself
 resource "azurerm_role_assignment" "slack_alerts_monitoring_reader_appinsights" {
-  count = var.env == "aat" ? 1 : 0
+  count = var.env == "prod" ? 1 : 0
 
   scope                = data.azurerm_application_insights.main.id
   role_definition_name = "Monitoring Reader"
@@ -35,7 +35,7 @@ resource "azurerm_role_assignment" "slack_alerts_monitoring_reader_appinsights" 
 # Output workspace ID for use by services that need to query logs
 # Only created in prod where the slack alerts function needs it
 resource "azurerm_key_vault_secret" "app_insights_workspace_id" {
-  count = var.env == "aat" ? 1 : 0
+  count = var.env == "prod" ? 1 : 0
 
   name         = "app-insights-workspace-id"
   value        = data.azurerm_application_insights.main.workspace_id
