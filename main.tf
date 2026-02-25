@@ -10,6 +10,17 @@ locals {
   )
 }
 
+# Slack alerts function app managed identity principal ID
+# Can be provided via variable or uses hardcoded default for prod
+# Hardcoded because pipeline service principal lacks access to subscription
+# If function app is recreated, update this ID from: az functionapp identity show --name fr-slack-alerts-func --resource-group fr-slack-alerts-rg --query principalId -o tsv
+locals {
+  # Use variable if provided, otherwise use hardcoded prod value
+  slack_alerts_principal_id = var.slack_alerts_principal_id != "" ? var.slack_alerts_principal_id : (
+    var.env == "prod" ? "407103df-1a98-4c25-af65-ae11daf1fef5" : null
+  )
+}
+
 resource "azurerm_resource_group" "rg" {
   name     = "${var.product}-${var.env}"
   location = var.location
